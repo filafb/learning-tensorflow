@@ -8,7 +8,7 @@ import * as tf from '@tensorflow/tfjs'
  * the data and _normalizing_ the data
  * MPG on the y-axis.
  */
-function converToTensor(data) {
+function convertToTensor(data) {
   return tf.tidy(() => {
     //step 1: shuffle data
     //Always shuffle the data. It's important to the final result
@@ -22,7 +22,7 @@ function converToTensor(data) {
 
     const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
     const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
-    console.log(inputTensor)
+    console.log('tensor input', inputTensor)
 
     //3 Normalize the data to the range of 0 - 1 using min-max scaling
     //Normalize data is a best practice
@@ -33,7 +33,7 @@ function converToTensor(data) {
 
     const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
     const normalizedLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
-
+    console.log('normalize input', normalizedInputs)
     return {
       inputs: normalizedInputs,
       labels: normalizedLabels,
@@ -45,3 +45,5 @@ function converToTensor(data) {
     }
   });
 }
+
+export default convertToTensor
