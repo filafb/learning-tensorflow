@@ -1,5 +1,6 @@
 import Axios from "axios";
 import * as tvis from '@tensorflow/tfjs-vis';
+import createModel from './mlModel';
 
 console.log('hello')
 
@@ -15,7 +16,6 @@ async function getData() {
 
 async function run () {
   const data = await getData();
-  console.log(data.length)
   const values = data.map(d => ({
     x: d.horsepower,
     y: d.mpg
@@ -32,3 +32,8 @@ async function run () {
 }
 
 document.addEventListener('DOMContentLoaded', run)
+
+//create an instance of the model and show a summary of the layers on the webpage
+const model = createModel();
+console.log(model)
+tvis.show.modelSummary({name: "Model Sumary"}, model)
