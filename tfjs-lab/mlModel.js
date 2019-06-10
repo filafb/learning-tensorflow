@@ -18,6 +18,21 @@ function createModel() {
     // bias: if not set, default is true
     useBias: true
   }));
+  model.add(tf.layers.dense({
+    name: 'second_hidden_Layer',
+    units: 16,
+    activation: 'relu',
+    // bias: if not set, default is true
+    useBias: true
+  }));
+
+  model.add(tf.layers.dense({
+    name: 'third_hidden_Layer',
+    units: 16,
+    activation: 'relu',
+    // bias: if not set, default is true
+    useBias: true
+  }));
 
   //add an output layer
   //We set unit 1 because we want to output one number

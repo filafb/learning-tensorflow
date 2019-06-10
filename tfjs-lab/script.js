@@ -3,6 +3,7 @@ import * as tfvis from '@tensorflow/tfjs-vis';
 import createModel from './mlModel';
 import convertToTensor from './dataToTensors';
 import trainModel from './trainingModel';
+import testModel from './makePredicitons'
 
 console.log('hello')
 
@@ -38,7 +39,8 @@ async function run () {
   const tensorData = convertToTensor(data);
   const {inputs, labels} = tensorData;
   await trainModel(model, inputs, labels);
-  console.log('Done training')
+  console.log('Done training');
+  testModel(model, data, tensorData)
 }
 
 document.addEventListener('DOMContentLoaded', run)
