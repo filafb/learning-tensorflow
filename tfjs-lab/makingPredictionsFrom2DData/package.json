@@ -12,7 +12,7 @@
   "dependencies": {
     "@tensorflow/tfjs": "^1.1.2",
     "@tensorflow/tfjs-vis": "^1.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.3"
